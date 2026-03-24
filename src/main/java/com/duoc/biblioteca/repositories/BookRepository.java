@@ -83,5 +83,15 @@ public class BookRepository {
         this.bookList.remove(book);
     }
 
+    public List<Book> findByAuthor (String author){
+        List<Book> filterAuthor = new ArrayList<>();
+        for (Book book : this.bookList){
+            if(book.getAuthor().equals(author)){
+                filterAuthor.add(book);
+            }
+        }
+        return filterAuthor;
+    }
+
 
 }

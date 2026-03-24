@@ -45,4 +45,9 @@ public class BookController {
     public ResponseEntity<Map<String,Integer>> getTotal(){
         return ResponseEntity.status(HttpStatus.OK).body(this.bookService.count());
     }
+
+    @GetMapping("/author/{author}")
+    public ResponseEntity <List<Map<String,String>>> getByAuthor (@PathVariable String author){
+        return ResponseEntity.status(HttpStatus.OK).body(this.bookService.getBookByAuthor(author));
+    }
 }
