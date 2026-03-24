@@ -5,7 +5,10 @@ import com.duoc.biblioteca.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookService {
@@ -37,4 +40,10 @@ public class BookService {
         this.bookRepository.deleteById(id);
     }
 
+    public Map<String,Integer> count(){
+        List<Book> list = this.bookRepository.findAll();
+        Map<String,Integer> response = new HashMap<>();
+        response.put("CantidadLibros" , list.size());
+        return response;
+    }
 }

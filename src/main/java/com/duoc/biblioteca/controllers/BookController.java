@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/books")
@@ -40,4 +41,8 @@ public class BookController {
         );
     }
 
+    @GetMapping("/total")
+    public ResponseEntity<Map<String,Integer>> getTotal(){
+        return ResponseEntity.status(HttpStatus.OK).body(this.bookService.count());
+    }
 }

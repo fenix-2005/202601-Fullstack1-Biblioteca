@@ -17,6 +17,16 @@ public class BookRepository {
         return this.bookList;
     }
 
+    public BookRepository(){
+        this.bookList.add( new Book(1L,
+                "abc",
+                "libro 1",
+                "Libro Test",
+                "Tested",
+                1 ,
+                "persona" ));
+    };
+
     public Book findById(Long id){
         for(Book book : this.bookList){
             if(Objects.equals(book.getId(), id)){
